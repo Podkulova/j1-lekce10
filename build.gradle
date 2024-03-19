@@ -1,0 +1,33 @@
+plugins {
+    id 'application'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.14.2"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.2"
+
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.2"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    mainClass = "cz.czechitas.lekce10.Kalkulacka"
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
